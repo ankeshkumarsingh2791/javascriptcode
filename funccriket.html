@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ball Bat Stum Game</h1>
+    <button onclick="  
+    let computerChoice  =  GenerateComputerChoice(); 
+     let resultMsg = getresult('Bat', computerChoice);
+         
+         alert(` Computer choosen${computerChoice}. ${resultMsg}`)
+         ">Bat</button>
+    <button onclick="
+           computerChoice=  GenerateComputerChoice();
+             resultMsg = getresult('Ball', computerChoice);
+         alert(`  Computer choosen${computerChoice}. ${resultMsg}`)
+         
+             ">Ball</button>
+    <button onclick="
+    computerChoice= GenerateComputerChoice(); 
+     resultMsg = getresult('Stump', computerChoice);
+
+         alert(`  Computer choosen${computerChoice}. ${resultMsg}`)
+         
+     ">Stump</button>
+
+
+
+
+    <script>
+         let score = {
+            win:0,
+            lost:0,
+            tie:0
+         }
+
+         
+        function GenerateComputerChoice(){
+        
+            let randomNumber = Math.random()*3;
+            if(randomNumber >0 && randomNumber <=1){
+            return 'Bat';
+         }
+         else  if(randomNumber >1 && randomNumber <=2){
+            return 'Ball';
+         }
+         else{
+           return 'Stump';
+        }
+        }
+        function getresult(userMove, computrMove){
+
+         if(userMove === 'Bat'){
+            if(computrMove === 'Ball'){
+                score.win += 1;
+              return'user won';
+         } else if(computrMove === 'Bat'){
+            score.tie++;
+           return ' it is tie'
+         }else if (computrMover === 'Stump'){
+            score.lost++;
+           return'computer has lost the game'
+         }
+         }else if(userMove === 'Ball'){
+            if(computrMove === 'Ball'){
+                score.win++;
+              return'user won'
+         } else if(computrMover === 'Bat'){
+            score.tie++;
+            return ' it is tie'
+         }else if(computrMove === 'Stump'){
+            score.lost++;
+            return'computer has won the game'
+         }
+
+         } else {
+            if(computrMove === 'Ball'){
+              return'user won'
+         } else if(computrMove === 'Bat'){
+           return' it is tie'
+         }else if(computrMove === 'Stump'){
+            return'computer has won the game'
+         }
+
+         }
+
+        }
+        console.log(score)
+    </script>
+</body>
+</html>
